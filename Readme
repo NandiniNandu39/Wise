@@ -1,0 +1,75 @@
+*Wise Staging Environment Automation Script*
+This repository contains an automation script designed to streamline the process of automating test scenarios for the Wise staging environment. The script is written to ensure efficient testing by simulating real-world user interactions and validating the expected behaviors on the platform.
+Problem Statement
+The objective of this script is to automate a particular test scenario on the Wise platform. The tasks are centered around key functionalities such as user login, classroom navigation, session scheduling, and validating results. This automation test helps to ensure that the platform operates as intended in a staging environment.
+Key Features
+Automated Login:
+ Simulates a tutor's login process using phone number-based authentication and validates the successful login by checking the institute name visibility.
+
+
+Classroom Access Testing:
+ Tests navigation to a specific classroom by verifying that the "Group courses" and the "Classroom for Automated testing" options are functional and that the correct classroom opens successfully.
+
+
+Session Scheduling Automation:
+ Automates scheduling a session for a specified time (today at 10 PM), utilizing the scheduling interface on the Wise platform.
+
+
+Validation of Scheduled Sessions:
+Ensures that scheduled sessions are displayed on the classroom's timeline. It verifies session details such as instructor name, session title, time, and status to confirm successful scheduling.
+TDD Approach:
+In my project, I followed a Test Data-Driven (TDD) approach, leveraging an Excel file to store and manage test data. Here's how the approach works and its benefits.
+Used Dynamic Xpaths:
+I have used dynamic XPaths which are helpful for re usability. I have saved text in Excel and called it in XPath.
+Prerequisites
+Language: The script is implemented in Java, selenium and TestNG.
+Automation Framework: Selenium TDD(Data Driven Testing) framework for browser automation.
+Wise Staging URL: https://staging-web.wise.live.
+Test credentials:
+Phone Number: +911111100000
+OTP: 0000
+Steps Automated
+Login as a Tutor:
+
+
+Open the staging site.
+Login using provided credentials and OTP.
+Assert that the "Testing Institute" name is displayed.
+Navigate to a Classroom:
+
+
+Select "Group courses" from the navigation tabs.
+Open "Classroom for Automated testing."
+Verify successful navigation to the classroom.
+Schedule a Live Session:
+
+
+Navigate to the "Live sessions" tab.
+Open the scheduling UI and add a session for today at 10 PM.
+Confirm creation of the session.
+Validate the Scheduled Session:
+
+
+Check the classroom timeline to ensure the session appears.
+Verify all session details, including instructor name, session title, and status (e.g., upcoming).
+Usage
+How to run the Scripts:
+Download the Repository:
+Download this repository as a ZIP file.
+Extract the contents of the ZIP file to a convenient location on your computer.
+Download and Install Eclipse:
+Download Eclipse IDE from Eclipse Downloads.
+Install Eclipse on your system by following the installation instructions provided on the website.
+Open the Project in Eclipse:
+Open Eclipse and select a workspace directory.
+Navigate to File > Open Projects from File System or Import > General > Existing Projects into Workspace.
+Select the extracted folder containing the project files.
+Click Finish to import the project into Eclipse.
+Navigate to the TestCases package
+Open the TC01_login_Create_Session script
+Run the Script:
+Locate the main test script or the primary folder containing the executable file(s).
+Right-click on the file/folder and select Run As > Java Application or the relevant configuration for the project.
+Observe the execution logs and browser actions as the test script runs the automated scenario.
+Important Note: Sometimes After creating the Session its not reflection in the TimeLine section
+Because of that the final validation is getting failed.(I tried to create it manually also, but i didn't get the upcoming Session in the time line)
