@@ -78,10 +78,10 @@ public class BaseClass {
     public WebDriver getDriver() {
         return driver;
     }
-//@AfterMethod
-//    public static void quit() {
-//        if (driver != null) {
-//            driver.quit();
-//       }
-//    }
+@AfterMethod
+    public static void quit() {
+        if (driver != null) {
+            driver.quit();
+       }
+    }
 }
