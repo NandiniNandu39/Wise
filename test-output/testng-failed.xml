@@ -7,6 +7,7 @@
         <methods>
           <include name="login_Create_Session"/>
           <include name="launchBrowser"/>
+          <include name="quit"/>
           <include name="loadConfig"/>
           <include name="getDriver"/>
         </methods>

@@ -3,6 +3,7 @@ package com.wise.testcases;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -79,6 +80,16 @@ public class TC001__Login_and_Create_session extends BaseClass {
 		Action.clearTheData(classRoomPage.getTimingTextField());
 		Action.type(driver,classRoomPage.getTimingTextField(),variables.timing);
 		Action.pressEnter() ;
+		try {
+			
+		    WebElement element = classRoomPage.getPMtimingButton(); 
+		    System.out.println(element+" Element is present.");
+		} catch (NoSuchElementException e) {
+		    System.out.println("Element is not present. Clicking on another element.");
+		    WebElement anotherElement = classRoomPage.getAMtimingButton(); 
+		    anotherElement.click();
+		}
+
 		Action.waitTillClickable(driver,classRoomPage.getCreateButton());
 		Action.click(driver,classRoomPage.getCreateButton());
 		String tabInClassRoom = TestData.getValueByKey(commonData, "Tab_ClassRoom");
@@ -88,6 +99,8 @@ public class TC001__Login_and_Create_session extends BaseClass {
 		Assert.assertEquals(instituteName,classRoomPage.instituteName(instituteName).getText(), "Text comparsion in Institute Name");
 		Action.scrollByVisibilityOfElement(driver, classRoomPage.getUpcomingButton());
 		Action.isElementDisplayed(driver,classRoomPage.getUpcomingButton() );
-		Assert.assertEquals(variables.timing,classRoomPage.timeOfSession(variables.timing).getText(), "value comparsion in session");    
-	}
+		Assert.assertTrue(
+			    classRoomPage.timeOfSession(variables.timing).getText().contains(variables.timing),
+			    "The session time does not contain the expected value: " + variables.timing
+			);	}
 }

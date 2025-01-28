@@ -20,7 +20,7 @@ public class ClassRoomPage {
 	@FindBy(xpath = "//span[text()='Add session ']")
 	WebElement addSessionButton;
 	@FindBy(xpath = "//div[text()='PM']")
-	boolean PMbutton;
+	WebElement PMbutton;
 	@FindBy(xpath = "//div[text()='AM']")
 	WebElement AMbutton;
 	@FindBy(xpath = "//div[@class='d-flex timing-card']//input[@type='text']")
@@ -50,7 +50,7 @@ public class ClassRoomPage {
 	public WebElement getAddSessionButtonButton() {
 		return addSessionButton;	
 	}
-	public boolean getPMtimingButton() {
+	public WebElement getPMtimingButton() {
 		return PMbutton;	
 	}
 	public WebElement getAMtimingButton() {
